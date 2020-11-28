@@ -1,0 +1,40 @@
+const { getHeroeById, getHeroesBYOwner } = require("./bases/08-imports-exp");
+
+
+// const promesa = new Promise((resolve,reject)=>{
+//     setTimeout(() => {
+//         // 
+//         const heroe = getHeroeById(2);
+//         console.log(heroe);        
+//         // console.log("2 segundos despues");
+//         resolve(heroe);
+//         // reject("no se pudo encontrar el heroe");
+//     }, 2000);
+
+// });
+
+// promesa.then((heroe)=>{
+//     console.log("heroe: ", heroe);
+
+// })
+// .catch(err => console.warn(err));
+// ;
+
+const getHeroeByIdAsync = (id)=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            // 
+            const heroe = getHeroeById(id);
+            // console.log(heroe);        
+            // console.log("2 segundos despues");
+            heroe?resolve(heroe):reject("no se encontro el heroe");
+            // resolve(heroe);
+            // reject("no se pudo encontrar el heroe");
+        }, 1000);
+    });
+    
+}
+
+getHeroeByIdAsync(4)
+.then(console.log)
+.catch(console.log);
